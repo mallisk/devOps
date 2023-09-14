@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: git-pod-deployment
+spec:
+  replicas: 3  # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: git-pod
+  template:
+    metadata:
+      labels:
+        app: git-pod
+    spec:
+      containers:
+        - name: git
+          image: alpine/git
+          command: ["sleep", "infinity"]

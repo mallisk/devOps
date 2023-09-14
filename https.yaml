@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-pod-deployment
+spec:
+  replicas: 5  # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: test-pod
+  template:
+    metadata:
+      labels:
+        app: test-pod
+    spec:
+      containers:
+        - name: web
+          image: httpd
